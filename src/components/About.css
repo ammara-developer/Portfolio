@@ -1,0 +1,134 @@
+.about {
+  padding: 7rem 0;
+  background: var(--bg);
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Visual side */
+.about__visual { }
+.about__img-wrap { position: relative; display: inline-block; width: 100%; }
+.about__img-placeholder {
+  aspect-ratio: 3 / 4;
+  max-height: 480px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /* Yellow left accent */
+  border-left: 4px solid var(--yellow);
+}
+.about__img-initials {
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(248,180,0,0.12);
+  letter-spacing: -0.02em;
+}
+.about__img-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 60%, rgba(248,180,0,0.06) 0%, transparent 65%);
+}
+
+/* Experience badge */
+.about__exp-badge {
+  position: absolute;
+  bottom: -1.25rem; right: -1.25rem;
+  background: var(--yellow);
+  color: #000;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 24px rgba(248,180,0,0.25);
+}
+.about__exp-num {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.about__exp-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Content side */
+.about__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+}
+.about__heading-em {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--yellow);
+}
+.about__intro {
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 1.1rem;
+  line-height: 1.85;
+}
+.about__intro strong { color: var(--yellow); font-weight: 500; }
+.about__body {
+  color: var(--muted);
+  margin-bottom: 2rem;
+  line-height: 1.85;
+}
+
+.about__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+.afact {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.afact:hover { background: var(--faint); }
+.afact:nth-child(even) { border-right: none; }
+.afact:nth-last-child(-n+2) { border-bottom: none; }
+.afact__k {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 0.2rem;
+}
+.afact__v {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about__img-placeholder { max-height: 260px; aspect-ratio: 16 / 7; }
+  .about__exp-badge { bottom: -1rem; right: -0.5rem; padding: 1rem; }
+}

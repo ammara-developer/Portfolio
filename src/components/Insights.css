@@ -1,0 +1,106 @@
+.insights {
+  padding: 7rem 0;
+  background: var(--bg);
+}
+.insights__intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 3.5rem;
+}
+.insights__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.insights__em { font-style: italic; font-weight: 300; color: var(--yellow); }
+.insights__sub { color: var(--muted); line-height: 1.8; padding-bottom: 0.25rem; }
+
+.insights__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.icard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+  /* left accent on hover */
+  border-left: 3px solid transparent;
+}
+.icard:hover {
+  transform: translateY(-5px);
+  border-left-color: var(--yellow);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.25);
+}
+.icard__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icard__tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.icard__meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+.icard__num {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.icard__title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: color 0.25s;
+}
+.icard:hover .icard__title { color: var(--yellow); }
+.icard__excerpt {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  flex: 1;
+}
+.icard__footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.icard__read-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--yellow);
+  transition: letter-spacing 0.25s;
+}
+.icard:hover .icard__read-link { letter-spacing: 0.14em; }
+
+@media (max-width: 860px) {
+  .insights__intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .insights__grid  { grid-template-columns: 1fr; }
+}
+@media (min-width: 560px) and (max-width: 860px) {
+  .insights__grid { grid-template-columns: 1fr 1fr; }
+}

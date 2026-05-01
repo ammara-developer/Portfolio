@@ -1,0 +1,225 @@
+/* ── Work / Projects Section ─────────────────────────────── */
+.work {
+  padding: 7rem 0;
+  background: var(--bg2);
+}
+ 
+.work__head {
+  margin-bottom: 1rem;
+}
+ 
+.work__intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+.work__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.work__em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--yellow);
+}
+.work__sub {
+  color: var(--muted);
+  line-height: 1.8;
+  padding-bottom: 0.25rem;
+}
+ 
+/* ── Row list ──────────────────────────────────────────────── */
+.work__list {
+  border-top: 1px solid var(--border);
+}
+ 
+.wrow {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 2rem;
+  /* KEY FIX: padding on sides so hover bg looks clean */
+  padding: 2rem 1rem;
+  margin: 0 -1rem;
+  border-bottom: 1px solid var(--border);
+  /* KEY FIX: align-items start so right col doesn't stretch content */
+  align-items: start;
+  /* KEY FIX: only animate background, no transform that causes jumps */
+  transition: background 0.25s ease;
+  cursor: default;
+  border-radius: 6px;
+}
+ 
+/* Hover — ONLY changes background and a few color props. Nothing moves. */
+.wrow--hover {
+  background: rgba(248, 180, 0, 0.035);
+}
+.wrow--hover .wrow__title {
+  color: var(--yellow);
+}
+.wrow--hover .wrow__num {
+  color: rgba(248, 180, 0, 0.18);
+}
+.wrow--hover .wrow__arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--yellow);
+}
+ 
+/* Number */
+.wrow__num {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.25s;
+  /* stop it from collapsing */
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+ 
+/* Main content */
+.wrow__main {
+  /* no special styles needed — just flows naturally */
+}
+ 
+.wrow__top-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+.wrow__cat {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.wrow__year {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+ 
+.wrow__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+  /* smooth color transition only */
+  transition: color 0.25s ease;
+}
+.wrow__desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  max-width: 600px;
+}
+.wrow__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.wrow__tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.35);
+  background: var(--faint);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+ 
+/* Right col — status + arrow */
+.wrow__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+  /* KEY FIX: add top padding so it aligns visually with the title */
+  padding-top: 1.8rem;
+  /* KEY FIX: min-width so it never collapses or causes layout shift */
+  min-width: 110px;
+}
+ 
+.wrow__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc, var(--muted));
+  white-space: nowrap;
+}
+.wrow__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sc, var(--muted));
+  flex-shrink: 0;
+}
+ 
+.wrow__arrow {
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.3s ease;
+  /* KEY FIX: reserve space so it doesn't push layout when it appears */
+  display: block;
+  height: 1.4rem;
+}
+ 
+/* ── CTA strip ─────────────────────────────────────────────── */
+.work__cta {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.work__cta-text {
+  color: var(--muted);
+  font-size: 1rem;
+}
+ 
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .work__intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .wrow {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 1.5rem 0;
+    margin: 0;
+  }
+  .wrow__num { display: none; }
+  .wrow__right {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+    min-width: unset;
+  }
+  .wrow__arrow { display: none; }
+  .work__cta {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}

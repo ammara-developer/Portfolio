@@ -1,0 +1,332 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 5rem;
+  overflow: hidden;
+}
+
+/* yellow vertical accent */
+.hero__strip {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 4px;
+  background: var(--yellow);
+}
+
+/* Subtle grid bg */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Badge ── */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  border: 1px solid rgba(248,180,0,0.30);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.75rem;
+  width: fit-content;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s var(--ease) 0.1s, transform 0.7s var(--ease) 0.1s;
+}
+.hero__badge--in { opacity: 1; transform: translateY(0); }
+.hero__badge-dot {
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* ── Name ── */
+.hero__name {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s var(--ease) 0.22s, transform 0.8s var(--ease) 0.22s;
+}
+.hero__name--in { opacity: 1; transform: translateY(0); }
+.hero__name-italic {
+  font-style: italic;
+  font-weight: 300;
+  -webkit-text-stroke: 1.5px var(--white);
+  color: transparent;
+}
+
+/* ── Role ── */
+.hero__role-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s var(--ease) 0.38s, transform 0.7s var(--ease) 0.38s;
+  height: 2rem;
+  overflow: hidden;
+}
+.hero__role-row--in { opacity: 1; transform: translateY(0); }
+.hero__role-slash {
+  font-family: var(--font-mono);
+  color: var(--yellow);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.hero__role {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.hero__role--in  { animation: rIn  0.42s var(--ease) both; }
+.hero__role--out { animation: rOut 0.42s var(--ease) both; }
+@keyframes rIn  { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes rOut { from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(-16px)} }
+
+/* ── Desc ── */
+.hero__desc {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 500px;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s var(--ease) 0.5s, transform 0.7s var(--ease) 0.5s;
+}
+.hero__desc--in { opacity: 1; transform: translateY(0); }
+
+/* ── CTAs ── */
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s var(--ease) 0.62s, transform 0.7s var(--ease) 0.62s;
+}
+.hero__ctas--in { opacity: 1; transform: translateY(0); }
+.hero__btn { font-weight: 600; }
+
+/* ── Stats ── */
+.hero__stats {
+  display: flex;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease) 0.78s;
+}
+.hero__stats--in { opacity: 1; }
+.hstat__n {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hstat__l {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* ── Right card ── */
+.hero__right {
+  position: relative;
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.9s var(--ease) 0.4s, transform 0.9s var(--ease) 0.4s;
+}
+.hero__right--in { opacity: 1; transform: translateX(0); }
+
+.hero__card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+.hero__card-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--yellow), var(--red));
+}
+.hero__card-body { padding: 2.5rem; }
+
+.hero__avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 2px solid rgba(248,180,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.hero__avatar span {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.hero__card-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.2rem;
+}
+.hero__card-role {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.hero__card-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+.hero__card-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 0.75rem;
+}
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.hbadge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  animation: badgeIn 0.5s var(--ease) both;
+}
+@keyframes badgeIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+
+.hero__card-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.hero__card-status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: blink 2s infinite;
+}
+.hero__card-corner {
+  position: absolute;
+  bottom: 0; right: 0;
+}
+
+/* Floating labels */
+.hero__float {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.hero__float--1 {
+  top: -1rem; right: 2rem;
+  animation: floatY 3s ease-in-out infinite;
+}
+.hero__float--2 {
+  bottom: 1.5rem; right: -1rem;
+  animation: floatY 3.5s ease-in-out infinite 0.5s;
+}
+@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+/* Scroll hint */
+.hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: fadeInUp 0.8s var(--ease) 1.2s both;
+}
+@keyframes fadeInUp { from{opacity:0;transform:translateX(-50%) translateY(12px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+.hero__scroll-track {
+  width: 1px; height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.hero__scroll-thumb {
+  width: 100%; height: 40%;
+  background: var(--yellow);
+  border-radius: 1px;
+  animation: scrollThumb 1.8s ease-in-out infinite;
+}
+@keyframes scrollThumb {
+  0%   {transform:translateY(-100%)}
+  100% {transform:translateY(300%)}
+}
+
+@media (max-width: 900px) {
+  .hero__layout { grid-template-columns: 1fr; gap: 3rem; }
+  .hero__right { display: none; }
+  .hero__stats { gap: 2rem; }
+}
+@media (max-width: 480px) {
+  .hero__name { font-size: 3.5rem; }
+  .hero { padding: 7rem 0 4rem; }
+}
